@@ -1,3 +1,6 @@
+const path = require("path");
+require("dotenv").config({ path: path.resolve(__dirname, "./.env") });
+
 import { HardhatUserConfig } from "hardhat/config";
 import "hardhat-deploy";
 import "@nomicfoundation/hardhat-toolbox";

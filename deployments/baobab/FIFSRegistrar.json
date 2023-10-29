@@ -1,0 +1,127 @@
+{
+  "address": "0xe79B4Ea7eCB925F7b21f52b77B0E755197DbeB42",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "contract ENS",
+          "name": "ensAddr",
+          "type": "address"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "node",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "label",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        }
+      ],
+      "name": "register",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0x4bb70330d164cb7f2b99062e7891419866cb5ef35f3a399fc4acde6846cb901e",
+  "receipt": {
+    "to": null,
+    "from": "0xF959343f3dA502C04423C028816b540cE6af368D",
+    "contractAddress": "0xe79B4Ea7eCB925F7b21f52b77B0E755197DbeB42",
+    "transactionIndex": 1,
+    "gasUsed": "296602",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "blockHash": "0xcf5faf0f4149695589e4bac38e07c34d695095c0149294ade36a1aaa7a88e576",
+    "transactionHash": "0x4bb70330d164cb7f2b99062e7891419866cb5ef35f3a399fc4acde6846cb901e",
+    "logs": [],
+    "blockNumber": 134065039,
+    "cumulativeGasUsed": "468639",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [
+    "0x8971dA26cC9020f6CbE8f2e58C9E7789a9Be37c7",
+    "0x04f740db81dc36c853ab4205bddd785f46e79ccedca351fc6dfcbd8cc9a33dd6"
+  ],
+  "numDeployments": 1,
+  "solcInputHash": "01e3774814c3bb2a6d14202e1bda3958",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.18+commit.87f61d96\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"contract ENS\",\"name\":\"ensAddr\",\"type\":\"address\"},{\"internalType\":\"bytes32\",\"name\":\"node\",\"type\":\"bytes32\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"label\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"}],\"name\":\"register\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"constructor\":{\"params\":{\"ensAddr\":\"The address of the ENS registry.\",\"node\":\"The node that this registrar administers.\"}},\"register(bytes32,address)\":{\"params\":{\"label\":\"The hash of the label to register.\",\"owner\":\"The address of the new owner.\"}}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"constructor\":{\"notice\":\"Constructor.\"},\"register(bytes32,address)\":{\"notice\":\"Register a name, or change the owner of an existing registration.\"}},\"notice\":\"A registrar that allocates subdomains to the first person to claim them.\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"@ensdomains/ens-contracts/contracts/registry/FIFSRegistrar.sol\":\"FIFSRegistrar\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"@ensdomains/ens-contracts/contracts/registry/ENS.sol\":{\"content\":\"pragma solidity >=0.8.4;\\n\\ninterface ENS {\\n\\n    // Logged when the owner of a node assigns a new owner to a subnode.\\n    event NewOwner(bytes32 indexed node, bytes32 indexed label, address owner);\\n\\n    // Logged when the owner of a node transfers ownership to a new account.\\n    event Transfer(bytes32 indexed node, address owner);\\n\\n    // Logged when the resolver for a node changes.\\n    event NewResolver(bytes32 indexed node, address resolver);\\n\\n    // Logged when the TTL of a node changes\\n    event NewTTL(bytes32 indexed node, uint64 ttl);\\n\\n    // Logged when an operator is added or removed.\\n    event ApprovalForAll(address indexed owner, address indexed operator, bool approved);\\n\\n    function setRecord(bytes32 node, address owner, address resolver, uint64 ttl) external virtual;\\n    function setSubnodeRecord(bytes32 node, bytes32 label, address owner, address resolver, uint64 ttl) external virtual;\\n    function setSubnodeOwner(bytes32 node, bytes32 label, address owner) external virtual returns(bytes32);\\n    function setResolver(bytes32 node, address resolver) external virtual;\\n    function setOwner(bytes32 node, address owner) external virtual;\\n    function setTTL(bytes32 node, uint64 ttl) external virtual;\\n    function setApprovalForAll(address operator, bool approved) external virtual;\\n    function owner(bytes32 node) external virtual view returns (address);\\n    function resolver(bytes32 node) external virtual view returns (address);\\n    function ttl(bytes32 node) external virtual view returns (uint64);\\n    function recordExists(bytes32 node) external virtual view returns (bool);\\n    function isApprovedForAll(address owner, address operator) external virtual view returns (bool);\\n}\\n\",\"keccak256\":\"0x942ef29bd7c0f62228aeb91879ddd1ba101f52a2162970d3e48adffa498f4483\"},\"@ensdomains/ens-contracts/contracts/registry/FIFSRegistrar.sol\":{\"content\":\"pragma solidity >=0.8.4;\\n\\nimport \\\"./ENS.sol\\\";\\n\\n/**\\n * A registrar that allocates subdomains to the first person to claim them.\\n */\\ncontract FIFSRegistrar {\\n    ENS ens;\\n    bytes32 rootNode;\\n\\n    modifier only_owner(bytes32 label) {\\n        address currentOwner = ens.owner(keccak256(abi.encodePacked(rootNode, label)));\\n        require(currentOwner == address(0x0) || currentOwner == msg.sender);\\n        _;\\n    }\\n\\n    /**\\n     * Constructor.\\n     * @param ensAddr The address of the ENS registry.\\n     * @param node The node that this registrar administers.\\n     */\\n    constructor(ENS ensAddr, bytes32 node) public {\\n        ens = ensAddr;\\n        rootNode = node;\\n    }\\n\\n    /**\\n     * Register a name, or change the owner of an existing registration.\\n     * @param label The hash of the label to register.\\n     * @param owner The address of the new owner.\\n     */\\n    function register(bytes32 label, address owner) public only_owner(label) {\\n        ens.setSubnodeOwner(rootNode, label, owner);\\n    }\\n}\\n\",\"keccak256\":\"0xc1d6ba1c0bfd3d2dbada2b1cd516cf8901d87f301a674b0d7db6eba6dcc1edce\"}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b506040516102ed3803806102ed83398101604081905261002f91610058565b600080546001600160a01b0319166001600160a01b039390931692909217909155600155610092565b6000806040838503121561006b57600080fd5b82516001600160a01b038116811461008257600080fd5b6020939093015192949293505050565b61024c806100a16000396000f3fe608060405234801561001057600080fd5b506004361061002b5760003560e01c8063d22057a914610030575b600080fd5b61004361003e3660046101a9565b610045565b005b6000805460015460408051602080820193909352808201879052815180820383018152606082019283905280519301929092206302571be360e01b90915260648201528492916001600160a01b0316906302571be390608401602060405180830381865afa1580156100bb573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906100df91906101d9565b90506001600160a01b03811615806100ff57506001600160a01b03811633145b61010857600080fd5b6000546001546040516306ab592360e01b81526004810191909152602481018690526001600160a01b038581166044830152909116906306ab5923906064016020604051808303816000875af1158015610166573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061018a91906101fd565b5050505050565b6001600160a01b03811681146101a657600080fd5b50565b600080604083850312156101bc57600080fd5b8235915060208301356101ce81610191565b809150509250929050565b6000602082840312156101eb57600080fd5b81516101f681610191565b9392505050565b60006020828403121561020f57600080fd5b505191905056fea2646970667358221220b8cc0ee849e9c8e196e33ba34bc3fb4b5fc27e04e8de57d26f50287a0b82fbc664736f6c63430008120033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b506004361061002b5760003560e01c8063d22057a914610030575b600080fd5b61004361003e3660046101a9565b610045565b005b6000805460015460408051602080820193909352808201879052815180820383018152606082019283905280519301929092206302571be360e01b90915260648201528492916001600160a01b0316906302571be390608401602060405180830381865afa1580156100bb573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906100df91906101d9565b90506001600160a01b03811615806100ff57506001600160a01b03811633145b61010857600080fd5b6000546001546040516306ab592360e01b81526004810191909152602481018690526001600160a01b038581166044830152909116906306ab5923906064016020604051808303816000875af1158015610166573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061018a91906101fd565b5050505050565b6001600160a01b03811681146101a657600080fd5b50565b600080604083850312156101bc57600080fd5b8235915060208301356101ce81610191565b809150509250929050565b6000602082840312156101eb57600080fd5b81516101f681610191565b9392505050565b60006020828403121561020f57600080fd5b505191905056fea2646970667358221220b8cc0ee849e9c8e196e33ba34bc3fb4b5fc27e04e8de57d26f50287a0b82fbc664736f6c63430008120033",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {
+      "constructor": {
+        "params": {
+          "ensAddr": "The address of the ENS registry.",
+          "node": "The node that this registrar administers."
+        }
+      },
+      "register(bytes32,address)": {
+        "params": {
+          "label": "The hash of the label to register.",
+          "owner": "The address of the new owner."
+        }
+      }
+    },
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {
+      "constructor": {
+        "notice": "Constructor."
+      },
+      "register(bytes32,address)": {
+        "notice": "Register a name, or change the owner of an existing registration."
+      }
+    },
+    "notice": "A registrar that allocates subdomains to the first person to claim them.",
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 143,
+        "contract": "@ensdomains/ens-contracts/contracts/registry/FIFSRegistrar.sol:FIFSRegistrar",
+        "label": "ens",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_contract(ENS)136"
+      },
+      {
+        "astId": 145,
+        "contract": "@ensdomains/ens-contracts/contracts/registry/FIFSRegistrar.sol:FIFSRegistrar",
+        "label": "rootNode",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_bytes32"
+      }
+    ],
+    "types": {
+      "t_bytes32": {
+        "encoding": "inplace",
+        "label": "bytes32",
+        "numberOfBytes": "32"
+      },
+      "t_contract(ENS)136": {
+        "encoding": "inplace",
+        "label": "contract ENS",
+        "numberOfBytes": "20"
+      }
+    }
+  }
+}
