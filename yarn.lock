@@ -1332,7 +1332,7 @@
   dependencies:
     "@types/node" "*"
 
-"@types/glob@^7.1.1":
+"@types/glob@^7.1.1", "@types/glob@~7.2.0":
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@types/glob/-/glob-7.2.0.tgz#bc1b5bf3aa92f25bd5dd39f35c57361bdce5b2eb"
   integrity sha512-ZUxbzKl0IfJILTS6t7ip5fQQM/J3TJYubDm3nMbgubNNYS62eXeUpoLUC8/7fJNiFYHTrGPQn7hspDUzIHX3UA==
@@ -1435,6 +1435,14 @@
   version "7.5.2"
   resolved "https://registry.yarnpkg.com/@types/semver/-/semver-7.5.2.tgz#31f6eec1ed7ec23f4f05608d3a2d381df041f564"
   integrity sha512-7aqorHYgdNO4DM36stTiGO3DvKoex9TQRwsJU6vMaFGyqpBA1MNZkz+PG3gaNUPpTAOYhT1WR7M1JyA3fbS9Cw==
+
+"@types/shelljs@^0.8.14":
+  version "0.8.14"
+  resolved "https://registry.yarnpkg.com/@types/shelljs/-/shelljs-0.8.14.tgz#87b8817b2397ffe97b86a4d844036ee0d2a1f0ca"
+  integrity sha512-eqKaGPi60riuxI9pUVeCT02EGo94Y6HT119h7w5bXSELsis6+JqzdEy6H/w2xXl881wcN3VDnb/D0WlgSety5w==
+  dependencies:
+    "@types/glob" "~7.2.0"
+    "@types/node" "*"
 
 "@typescript-eslint/eslint-plugin@^5.58.0":
   version "5.62.0"

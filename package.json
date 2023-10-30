@@ -67,8 +67,10 @@
     "@klaytn/hardhat-utils": "^0.0.9",
     "@nomicfoundation/hardhat-toolbox": "^2.0.2",
     "@nomiclabs/hardhat-waffle": "^2.0.6",
+    "@types/shelljs": "^0.8.14",
     "dotenv": "^16.0.3",
     "eth-ens-namehash": "^2.0.8",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "shelljs": "^0.8.5"
   }
 }
