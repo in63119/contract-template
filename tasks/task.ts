@@ -157,7 +157,7 @@ task("write", "이것은 기관에 의한 라벨 등록을 위한 명령어입�
       const tx = await registrarContract.register(labelhash("inbrew"), contributer.address, { gasLimit });
       const receipt = await tx.wait();
 
-      console.log(receipt);
+      console.log("라벨 등록이 되었습니다 : ", receipt.transactionHash);
     };
 
     await register();
