@@ -140,3 +140,26 @@ task("setting", "이것은 ENS setting을 위한 명령어입니다.").setAction
     }
   },
 );
+
+task("write", "이것은 기관에 의한 라벨 등록을 위한 명령어입니다.").setAction(
+  async (args: any, hre: HardhatRuntimeEnvironment) => {
+    const { ethers } = hre;
+    const accounts = await ethers.getSigners();
+    const owner = accounts[0];
+    const contributer = accounts[1];
+    const labelhash = (label: any) => ethers.utils.keccak256(ethers.utils.toUtf8Bytes(label));
+
+    // Contract
+    const registrarContract = new ethers.Contract(FIFSRegistrar.address, FIFSRegistrar.abi, owner);
+
+    const register = async () => {
+      const gasLimit = 2000000;
+      const tx = await registrarContract.register(labelhash("inbrew"), contributer.address, { gasLimit });
+      const receipt = await tx.wait();
+
+      console.log(receipt);
+    };
+
+    await register();
+  },
+);
